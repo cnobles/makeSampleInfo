@@ -30,8 +30,8 @@ stopifnot(dbGetQuery(dbConn, "SELECT 1")==1)
 query_selection_hivsam <- "SELECT parentAlias,childAlias,linkerNum,bcNum,uniqRegion FROM hivsam"
 query_selection_contsam <- "SELECT parentAlias,childAlias,linkerNum,bcNum,uniqRegion FROM contsam"
 query_condition_1 <- paste0("WHERE dateSeqd LIKE '", runDate, "'")
-hivsam <- dbGetQuery(dbConn, paste(query_selection_hivsam, query_condition))
-contsam <- dbGetQuery(dbConn, paste(query_selection_contsam, query_condition))
+hivsam <- dbGetQuery(dbConn, paste(query_selection_hivsam, query_condition_1))
+contsam <- dbGetQuery(dbConn, paste(query_selection_contsam, query_condition_1))
 
 query_selection_hivsp <- "SELECT parentAlias,trial,gender FROM hivsp"
 parentAliasString <- paste(unique(hivsam$parentAlias), collapse = "' OR parentAlias = '")
